@@ -1,3 +1,25 @@
+[UIScreenlistenerMCM_XCOM2RPGOverhaul]
+strModTitle="Musashi's RPG Overhaul"
+strPageTitle="Musashi's RPG Overhaul"
+strSettingsTitle="General Settings"
+strButton1="Patch Bullpups Stats"
+strButton2="Patch Shotguns Stats"
+strButton3="Patch Cannons Stats"
+strButton4="Patch Autopistols Stats"
+strButton5="Patch Default Upgrade Slots"
+strButton6="Patch Heavy Weapons Mobility Penalty"
+strButton7="Patch Full AutoFire Ability"
+strButton8="Patch Return Fire Ability"
+strButton1TT="Set this to false if you want to revert to the standard Bullpups stats. (Removes +1 Ammo)"
+strButton2TT="Set this to false if you want to revert to the standard Shotguns stats. (Removes Damage/Cover/Range Related Stats)"
+strButton3TT="Set this to false if you want to revert to the standard Cannons stats. (Removes Increased Damage and Ammo)"
+strButton4TT="Set this to false if you want to revert to the standard Autopistol stats. (Removes Range/Crit Stats)"
+strButton5TT="Set this to false if you want to revert to standard Upgrade Slots for All Weapons."
+strButton6TT="Set this to false if you want to remove the Heavy Weapons Mobility Penalty."
+strButton7TT="Set this to false if you want to remove the Full Autofire Ability."
+strButton8TT="Set this to false if you want to remove Return Fire from Pistols."
+
+
 [Assault X2UniversalSoldierClassInfo]
 ClassSpecializationTitle=Assault
 ClassSpecializationSummary="The first and last units on the ground, these troops are dedicated, determined, and destructive. Expect rapid response and reconnaissance when you bring Assault Specialists to the fray. "
