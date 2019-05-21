@@ -1,6 +1,6 @@
 class X2TemplateHelper_RPGOverhaul extends Object config (RPG);
 
-`include(RPG/Src/ModConfigMenuAPI/MCM_API_CfgHelpers.uci)
+`include(XCOM2RPGOverhaul\Src\ModConfigMenuAPI\MCM_API_CfgHelpers.uci)
 
 struct AbilityWeaponCategoryRestriction
 {
@@ -30,7 +30,7 @@ struct WeaponProficiency
 	var name UnlocksWeaponCategory;
 };
 
-`MCM_CH_VersionChecker(class'XCOM2RPGOverhaul_Defaults'.default.VERSION,class'UIScreenlistenerMCM_XCOM2RPGOverhaul'.default.CONFIG_VERSION
+
 
 var config array<AbilityWeaponCategoryRestriction> AbilityWeaponCategoryRestrictions;
 var config array<AbilityPrerequisite> AbilityPrerequisites;
@@ -48,38 +48,39 @@ var config int CannonDamageBonus;
 var config int AutoPistolCritChanceBonus;
 var config int DefaultWeaponUpgradeSlots;
 
+`MCM_CH_VersionChecker(class'XCOM2RPGOverhaul_Defaults'.default.VERSION,class'UIScreenlistenerMCM_XCOM2RPGOverhaul'.default.CONFIG_VERSION)
 
 function bool bPatchBullpups()
 {
-	`MCM_CH_VersionChecker(class'XCOM2RPGOverhaul_Defaults'.default.bPatchBullpups,class'UIScreenlistenerMCM_XCOM2RPGOverhaul'.bPatchBullpups);
+	return `MCM_CH_VersionChecker(class'XCOM2RPGOverhaul_Defaults'.default.bPatchBullpups,class'UIScreenlistenerMCM_XCOM2RPGOverhaul'.bPatchBullpups);
 }
 function bool bPatchShotguns()
 {
-	`MCM_CH_VersionChecker(class'XCOM2RPGOverhaul_Defaults'.default.bPatchShotguns,class'UIScreenlistenerMCM_XCOM2RPGOverhaul'.bPatchShotguns);
+	return `MCM_CH_VersionChecker(class'XCOM2RPGOverhaul_Defaults'.default.bPatchShotguns,class'UIScreenlistenerMCM_XCOM2RPGOverhaul'.bPatchShotguns);
 }
 function bool bPatchCannons()
 {
-	`MCM_CH_VersionChecker(class'XCOM2RPGOverhaul_Defaults'.default.bPatchCannons,class'UIScreenlistenerMCM_XCOM2RPGOverhaul'.bPatchCannons);
+	return `MCM_CH_VersionChecker(class'XCOM2RPGOverhaul_Defaults'.default.bPatchCannons,class'UIScreenlistenerMCM_XCOM2RPGOverhaul'.bPatchCannons);
 }
 function bool bPatchPistols()
 {
-	`MCM_CH_VersionChecker(class'XCOM2RPGOverhaul_Defaults'.default.bPatchPistols,class'UIScreenlistenerMCM_XCOM2RPGOverhaul'.bPatchPistols);
+	return `MCM_CH_VersionChecker(class'XCOM2RPGOverhaul_Defaults'.default.bPatchPistols,class'UIScreenlistenerMCM_XCOM2RPGOverhaul'.bPatchPistols);
 }
 function bool bPatchAutoPistols()
 {
-	`MCM_CH_VersionChecker(class'XCOM2RPGOverhaul_Defaults'.default.bPatchAutoPistols,class'UIScreenlistenerMCM_XCOM2RPGOverhaul'.bPatchAutoPistols);
+	return `MCM_CH_VersionChecker(class'XCOM2RPGOverhaul_Defaults'.default.bPatchAutoPistols,class'UIScreenlistenerMCM_XCOM2RPGOverhaul'.bPatchAutoPistols);
 }
 function bool bPatchDefaultWeaponUpgradeSlots()
 {
-	`MCM_CH_VersionChecker(class'XCOM2RPGOverhaul_Defaults'.default.bPatchDefaultWeaponUpgradeSlots,class'UIScreenlistenerMCM_XCOM2RPGOverhaul'.bPatchDefaultWeaponUpgradeSlots);
+	return `MCM_CH_VersionChecker(class'XCOM2RPGOverhaul_Defaults'.default.bPatchDefaultWeaponUpgradeSlots,class'UIScreenlistenerMCM_XCOM2RPGOverhaul'.bPatchDefaultWeaponUpgradeSlots);
 }
 function bool bPatchHeavyWeaponMobility()
 {
-	`MCM_CH_VersionChecker(class'XCOM2RPGOverhaul_Defaults'.default.bPatchHeavyWeaponMobility,class'UIScreenlistenerMCM_XCOM2RPGOverhaul'.bPatchHeavyWeaponMobility);
+	return `MCM_CH_VersionChecker(class'XCOM2RPGOverhaul_Defaults'.default.bPatchHeavyWeaponMobility,class'UIScreenlistenerMCM_XCOM2RPGOverhaul'.bPatchHeavyWeaponMobility);
 }
 function bool bPatchFullAutoFire()
 {
-	`MCM_CH_VersionChecker(class'XCOM2RPGOverhaul_Defaults'.default.bPatchFullAutoFire,class'UIScreenlistenerMCM_XCOM2RPGOverhaul'.bPatchFullAutoFire);
+	return `MCM_CH_VersionChecker(class'XCOM2RPGOverhaul_Defaults'.default.bPatchFullAutoFire,class'UIScreenlistenerMCM_XCOM2RPGOverhaul'.bPatchFullAutoFire);
 }
 
 static function SetupSpecialization(name SoldierClassTemplate)

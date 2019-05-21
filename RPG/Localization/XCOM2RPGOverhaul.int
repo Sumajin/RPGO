@@ -1,7 +1,7 @@
 [UIScreenlistenerMCM_XCOM2RPGOverhaul]
-strModTitle="Musashi's RPG Overhaul"
-strPageTitle="Musashi's RPG Overhaul"
-strSettingsTitle="General Settings"
+strModTitle=Musashi's RPG Overhaul
+strPageTitle=Musashi's RPG Overhaul
+strSettingsTitle=General Settings
 strButton1="Patch Bullpups Stats"
 strButton2="Patch Shotguns Stats"
 strButton3="Patch Cannons Stats"

@@ -46,7 +46,7 @@ tags=Gameplay, Soldier Class, Overhaul, RPG, Weapon, Item</Description>
     <Folder Include="Src\XCOM2RPGOverhaul\" />
     <Folder Include="Src\XCOM2RPGOverhaul\Classes\" />
     <Folder Include="Src\ModConfigMenuAPI" />
-    <Folder Include="Src\ModConfigMenuAPI\Classes" />	
+    <Folder Include="Src\ModConfigMenuAPI\Classes" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Config\DetailedSoldierListWOTC\XComEngine.ini">
@@ -95,6 +95,9 @@ tags=Gameplay, Soldier Class, Overhaul, RPG, Weapon, Item</Description>
       <SubType>Content</SubType>
     </Content>
     <Content Include="Config\XComStealthOverhaul.ini">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Config\XCOM2RPGOverhaul_Defaults.ini">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Content\AutoFire_ANIM.upk">
@@ -433,6 +436,12 @@ tags=Gameplay, Soldier Class, Overhaul, RPG, Weapon, Item</Description>
     <Content Include="Src\XCOM2RPGOverhaul\Classes\XMBValue_Ammo.uc">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Src\XCOM2RPGOverhaul\Classes\UIScreenlistenerMCM_XCOM2RPGOverhaul.uc">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Src\XCOM2RPGOverhaul\Classes\XCOM2RPGOverhaul_Defaults.uc">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Src\XModBase_Core_2_0_1\Classes\XMBAbilityCost_ActionPoints.uc">
       <SubType>Content</SubType>
     </Content>
@@ -498,7 +507,7 @@ tags=Gameplay, Soldier Class, Overhaul, RPG, Weapon, Item</Description>
     </Content>
     <Content Include="Src\ModConfigMenuAPI\MCM_API_Includes.uci">
       <SubType>Content</SubType>
-    </Content>	
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildLocalExtensionPath)\XCOM2.targets" />
 </Project>

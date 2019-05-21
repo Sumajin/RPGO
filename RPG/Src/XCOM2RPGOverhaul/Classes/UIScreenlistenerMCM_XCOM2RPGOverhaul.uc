@@ -1,12 +1,10 @@
-class UIScreenlistenerMCM_XCOM2RPGOverhaul extends UIScreenListener config(XCOM2RPGOverhaul);
+class UIScreenlistenerMCM_XCOM2RPGOverhaul extends UIScreenListener config(notarealconfig);
 
-`include(RPG/Src/ModConfigMenuAPI/MCM_API_Includes.uci)
-`include(RPG/Src/ModConfigMenuAPI/MCM_API_CfgHelpers.uci)
+`include(XCOM2RPGOverhaul\Src\ModConfigMenuAPI\MCM_API_Includes.uci)
+`include(XCOM2RPGOverhaul\Src\ModConfigMenuAPI\MCM_API_CfgHelpers.uci)
 
 var config bool CHECKBOX_VALUE;
 var config int CONFIG_VERSION;
-
-
 
 event OnInit(UIScreen Screen)
 {
@@ -45,14 +43,14 @@ simulated function ClientModCallback(MCM_API_Instance ConfigAPI, int GameMode)
 
 simulated function LoadSavedSettings()
 {
-    bPatchBullpups = `MCM_CH_GetValue(class'XCOM2RPGOverhaul_Defaults'.default.PatchBullpups, PatchBullpups);
-	bPatchShotguns = `MCM_CH_GetValue(class'XCOM2RPGOverhaul_Defaults'.default.PatchShotguns, PatchShotguns);
+    bPatchBullpups = `MCM_CH_GetValue(class'XCOM2RPGOverhaul_Defaults'.default.bPatchBullpups, bPatchBullpups);
+	bPatchShotguns = `MCM_CH_GetValue(class'XCOM2RPGOverhaul_Defaults'.default.bPatchShotguns, bPatchShotguns);
 	bPatchCannons = `MCM_CH_GetValue(class'XCOM2RPGOverhaul_Defaults'.default.bPatchCannons, bPatchCannons);
 	bPatchPistols = `MCM_CH_GetValue(class'XCOM2RPGOverhaul_Defaults'.default.bPatchPistols, bPatchPistols);
 	bPatchAutoPistols = `MCM_CH_GetValue(class'XCOM2RPGOverhaul_Defaults'.default.bPatchAutoPistols, bPatchAutoPistols);
 	bPatchDefaultWeaponUpgradeSlots = `MCM_CH_GetValue(class'XCOM2RPGOverhaul_Defaults'.default.bPatchDefaultWeaponUpgradeSlots, bPatchDefaultWeaponUpgradeSlots);
 	bPatchHeavyWeaponMobility = `MCM_CH_GetValue(class'XCOM2RPGOverhaul_Defaults'.default.bPatchHeavyWeaponMobility , bPatchHeavyWeaponMobility);
-	bPatchFullAutoFire  = `MCM_CH_GetValue(class'XCOM2RPGOverhau__Defaults'.default.bPatchFullAutoFire, bPatchFullAutoFire);
+	bPatchFullAutoFire  = `MCM_CH_GetValue(class'XCOM2RPGOverhaul_Defaults'.default.bPatchFullAutoFire, bPatchFullAutoFire);
 }
 
 `MCM_API_BasicCheckboxSaveHandler(CheckboxSaveHandler, CHECKBOX_VALUE)
@@ -62,7 +60,6 @@ simulated function SaveButtonClicked(MCM_API_SettingsPage Page)
     self.CONFIG_VERSION = `MCM_CH_GetCompositeVersion();
     self.SaveConfig();
 }
-
 
 defaultproperties
 {
