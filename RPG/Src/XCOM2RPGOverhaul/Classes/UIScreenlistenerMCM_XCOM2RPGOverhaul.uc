@@ -3,8 +3,15 @@ class UIScreenlistenerMCM_XCOM2RPGOverhaul extends UIScreenListener config(notar
 `include(XCOM2RPGOverhaul\Src\ModConfigMenuAPI\MCM_API_Includes.uci)
 `include(XCOM2RPGOverhaul\Src\ModConfigMenuAPI\MCM_API_CfgHelpers.uci)
 
-var config bool CHECKBOX_VALUE;
 var config int CONFIG_VERSION;
+var config bool cbPatchBullpups;
+var config bool cbPatchShotguns;
+var config bool cbPatchCannons;
+var config bool cbPatchPistols;
+var config bool cbPatchAutoPistols;
+var config bool cbPatchDefaultWeaponUpgradeSlots;
+var config bool cbPatchHeavyWeaponMobility;
+var config bool cbPatchFullAutoFire;
 
 event OnInit(UIScreen Screen)
 {
@@ -27,33 +34,33 @@ simulated function ClientModCallback(MCM_API_Instance ConfigAPI, int GameMode)
     
     Group = Page.AddGroup('Group1', strSettingsTitle);
     
-	Group.AddCheckbox('cbPatchBullpups', strButton1, strButton1TT, CHECKBOX_VALUE, CheckboxSaveHandler);
-    Group.AddCheckbox('cbPatchShotguns', strButton2, strButton2TT, CHECKBOX_VALUE, CheckboxSaveHandler);
-    Group.AddCheckbox('cbPatchCannons', strButton3, strButton3TT, CHECKBOX_VALUE, CheckboxSaveHandler);
-    Group.AddCheckbox('cbPatchPistols', strButton4, strButton4TT, CHECKBOX_VALUE, CheckboxSaveHandler);
-    Group.AddCheckbox('cbPatchDefaultWeaponUpgradeSlots', strButton5, strButton5TT, CHECKBOX_VALUE, CheckboxSaveHandler);
-    Group.AddCheckbox('cbPatchHeavyWeaponMobility', strButton6, strButton6TT, CHECKBOX_VALUE, CheckboxSaveHandler);
-    Group.AddCheckbox('cbPatchFullAutoFire', strButton7, strButton7TT, CHECKBOX_VALUE, CheckboxSaveHandler);
-    Group.AddCheckbox('cbPatchAutoPistols', strButton8, strButton8TT, CHECKBOX_VALUE, CheckboxSaveHandler);	
+	Group.AddCheckbox('cbPatchBullpups', strButton1, strButton1TT, cbPatchBullpups, CheckboxSaveHandler);
+    Group.AddCheckbox('cbPatchShotguns', strButton2, strButton2TT, cbPatchBullpups, CheckboxSaveHandler);
+    Group.AddCheckbox('cbPatchCannons', strButton3, strButton3TT, cbPatchCannons, CheckboxSaveHandler);
+    Group.AddCheckbox('cbPatchAutoPistols', strButton4, strButton4TT, cbAutoPatchPistols, CheckboxSaveHandler);
+    Group.AddCheckbox('cbPatchDefaultWeaponUpgradeSlots', strButton5, strButton5TT, cbPatchDefaultWeaponUpgradeSlots, CheckboxSaveHandler);
+    Group.AddCheckbox('cbPatchHeavyWeaponMobility', strButton6, strButton6TT, cbPatchHeavyWeaponMobility, CheckboxSaveHandler);
+    Group.AddCheckbox('cbPatchFullAutoFire', strButton7, strButton7TT, cbPatchFullAutoFire, CheckboxSaveHandler);
+    Group.AddCheckbox('cbPatchPistols', strButton8, strButton8TT, cbPatchPistols, CheckboxSaveHandler);	
     
     Page.ShowSettings();
 }
+
 
 `MCM_CH_VersionChecker(class'XCOM2RPGOverhaul_Defaults'.default.VERSION,CONFIG_VERSION)
 
 simulated function LoadSavedSettings()
 {
-    bPatchBullpups = `MCM_CH_GetValue(class'XCOM2RPGOverhaul_Defaults'.default.bPatchBullpups, bPatchBullpups);
-	bPatchShotguns = `MCM_CH_GetValue(class'XCOM2RPGOverhaul_Defaults'.default.bPatchShotguns, bPatchShotguns);
-	bPatchCannons = `MCM_CH_GetValue(class'XCOM2RPGOverhaul_Defaults'.default.bPatchCannons, bPatchCannons);
-	bPatchPistols = `MCM_CH_GetValue(class'XCOM2RPGOverhaul_Defaults'.default.bPatchPistols, bPatchPistols);
-	bPatchAutoPistols = `MCM_CH_GetValue(class'XCOM2RPGOverhaul_Defaults'.default.bPatchAutoPistols, bPatchAutoPistols);
-	bPatchDefaultWeaponUpgradeSlots = `MCM_CH_GetValue(class'XCOM2RPGOverhaul_Defaults'.default.bPatchDefaultWeaponUpgradeSlots, bPatchDefaultWeaponUpgradeSlots);
-	bPatchHeavyWeaponMobility = `MCM_CH_GetValue(class'XCOM2RPGOverhaul_Defaults'.default.bPatchHeavyWeaponMobility , bPatchHeavyWeaponMobility);
-	bPatchFullAutoFire  = `MCM_CH_GetValue(class'XCOM2RPGOverhaul_Defaults'.default.bPatchFullAutoFire, bPatchFullAutoFire);
+    cbPatchBullpups = `MCM_CH_GetValue(class'XCOM2RPGOverhaul_Defaults'.default.bPatchBullpups, cbPatchBullpups);
+	cbPatchShotguns = `MCM_CH_GetValue(class'XCOM2RPGOverhaul_Defaults'.default.bPatchShotguns, cbPatchShotguns);
+	cbPatchCannons = `MCM_CH_GetValue(class'XCOM2RPGOverhaul_Defaults'.default.bPatchCannons, cbPatchCannons);
+	cbPatchPistols = `MCM_CH_GetValue(class'XCOM2RPGOverhaul_Defaults'.default.bPatchPistols, cbPatchPistols);
+	cbPatchAutoPistols = `MCM_CH_GetValue(class'XCOM2RPGOverhaul_Defaults'.default.bPatchAutoPistols, cbPatchAutoPistols);
+	cbPatchDefaultWeaponUpgradeSlots = `MCM_CH_GetValue(class'XCOM2RPGOverhaul_Defaults'.default.bPatchDefaultWeaponUpgradeSlots, cbPatchDefaultWeaponUpgradeSlots);
+	cbPatchHeavyWeaponMobility = `MCM_CH_GetValue(class'XCOM2RPGOverhaul_Defaults'.default.bPatchHeavyWeaponMobility , cbPatchHeavyWeaponMobility);
+	cbPatchFullAutoFire  = `MCM_CH_GetValue(class'XCOM2RPGOverhaul_Defaults'.default.bPatchFullAutoFire, cbPatchFullAutoFire);
 }
 
-`MCM_API_BasicCheckboxSaveHandler(CheckboxSaveHandler, CHECKBOX_VALUE)
 
 simulated function SaveButtonClicked(MCM_API_SettingsPage Page)
 {

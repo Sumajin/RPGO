@@ -52,35 +52,35 @@ var config int DefaultWeaponUpgradeSlots;
 
 function bool bPatchBullpups()
 {
-	return `MCM_CH_VersionChecker(class'XCOM2RPGOverhaul_Defaults'.default.bPatchBullpups,class'UIScreenlistenerMCM_XCOM2RPGOverhaul'.bPatchBullpups);
+	return `MCM_CH_VersionChecker(class'XCOM2RPGOverhaul_Defaults'.default.bPatchBullpups,class'UIScreenlistenerMCM_XCOM2RPGOverhaul'.cbPatchBullpups);
 }
 function bool bPatchShotguns()
 {
-	return `MCM_CH_VersionChecker(class'XCOM2RPGOverhaul_Defaults'.default.bPatchShotguns,class'UIScreenlistenerMCM_XCOM2RPGOverhaul'.bPatchShotguns);
+	return `MCM_CH_VersionChecker(class'XCOM2RPGOverhaul_Defaults'.default.bPatchShotguns,class'UIScreenlistenerMCM_XCOM2RPGOverhaul'.cbPatchShotguns);
 }
 function bool bPatchCannons()
 {
-	return `MCM_CH_VersionChecker(class'XCOM2RPGOverhaul_Defaults'.default.bPatchCannons,class'UIScreenlistenerMCM_XCOM2RPGOverhaul'.bPatchCannons);
+	return `MCM_CH_VersionChecker(class'XCOM2RPGOverhaul_Defaults'.default.bPatchCannons,class'UIScreenlistenerMCM_XCOM2RPGOverhaul'.cbPatchCannons);
 }
 function bool bPatchPistols()
 {
-	return `MCM_CH_VersionChecker(class'XCOM2RPGOverhaul_Defaults'.default.bPatchPistols,class'UIScreenlistenerMCM_XCOM2RPGOverhaul'.bPatchPistols);
+	return `MCM_CH_VersionChecker(class'XCOM2RPGOverhaul_Defaults'.default.bPatchPistols,class'UIScreenlistenerMCM_XCOM2RPGOverhaul'.cbPatchPistols);
 }
 function bool bPatchAutoPistols()
 {
-	return `MCM_CH_VersionChecker(class'XCOM2RPGOverhaul_Defaults'.default.bPatchAutoPistols,class'UIScreenlistenerMCM_XCOM2RPGOverhaul'.bPatchAutoPistols);
+	return `MCM_CH_VersionChecker(class'XCOM2RPGOverhaul_Defaults'.default.bPatchAutoPistols,class'UIScreenlistenerMCM_XCOM2RPGOverhaul'.cbPatchAutoPistols);
 }
 function bool bPatchDefaultWeaponUpgradeSlots()
 {
-	return `MCM_CH_VersionChecker(class'XCOM2RPGOverhaul_Defaults'.default.bPatchDefaultWeaponUpgradeSlots,class'UIScreenlistenerMCM_XCOM2RPGOverhaul'.bPatchDefaultWeaponUpgradeSlots);
+	return `MCM_CH_VersionChecker(class'XCOM2RPGOverhaul_Defaults'.default.bPatchDefaultWeaponUpgradeSlots,class'UIScreenlistenerMCM_XCOM2RPGOverhaul'.cbPatchDefaultWeaponUpgradeSlots);
 }
 function bool bPatchHeavyWeaponMobility()
 {
-	return `MCM_CH_VersionChecker(class'XCOM2RPGOverhaul_Defaults'.default.bPatchHeavyWeaponMobility,class'UIScreenlistenerMCM_XCOM2RPGOverhaul'.bPatchHeavyWeaponMobility);
+	return `MCM_CH_VersionChecker(class'XCOM2RPGOverhaul_Defaults'.default.bPatchHeavyWeaponMobility,class'UIScreenlistenerMCM_XCOM2RPGOverhaul'.cbPatchHeavyWeaponMobility);
 }
 function bool bPatchFullAutoFire()
 {
-	return `MCM_CH_VersionChecker(class'XCOM2RPGOverhaul_Defaults'.default.bPatchFullAutoFire,class'UIScreenlistenerMCM_XCOM2RPGOverhaul'.bPatchFullAutoFire);
+	return `MCM_CH_VersionChecker(class'XCOM2RPGOverhaul_Defaults'.default.bPatchFullAutoFire,class'UIScreenlistenerMCM_XCOM2RPGOverhaul'.cbPatchFullAutoFire);
 }
 
 static function SetupSpecialization(name SoldierClassTemplate)
