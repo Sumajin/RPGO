@@ -50,35 +50,35 @@ var config int DefaultWeaponUpgradeSlots;
 
 `MCM_CH_VersionChecker(class'XCOM2RPGOverhaul_Defaults'.default.VERSION,class'UIScreenlistenerMCM_XCOM2RPGOverhaul'.default.CONFIG_VERSION)
 
-function bool fPatchBullpups()
+static function bool fPatchBullpups()
 {
 	return `MCM_CH_VersionChecker(class'XCOM2RPGOverhaul_Defaults'.default.bPatchBullpups,class'UIScreenlistenerMCM_XCOM2RPGOverhaul'.default.cbPatchBullpups);
 }
-function bool fPatchShotguns()
+static function bool fPatchShotguns()
 {
 	return `MCM_CH_VersionChecker(class'XCOM2RPGOverhaul_Defaults'.default.bPatchShotguns,class'UIScreenlistenerMCM_XCOM2RPGOverhaul'.default.cbPatchShotguns);
 }
-function bool fPatchCannons()
+static function bool fPatchCannons()
 {
 	return `MCM_CH_VersionChecker(class'XCOM2RPGOverhaul_Defaults'.default.bPatchCannons,class'UIScreenlistenerMCM_XCOM2RPGOverhaul'.default.cbPatchCannons);
 }
-function bool fPatchPistols()
+static function bool fPatchPistols()
 {
 	return `MCM_CH_VersionChecker(class'XCOM2RPGOverhaul_Defaults'.default.bPatchPistols,class'UIScreenlistenerMCM_XCOM2RPGOverhaul'.default.cbPatchPistols);
 }
-function bool fPatchAutoPistols()
+static function bool fPatchAutoPistols()
 {
 	return `MCM_CH_VersionChecker(class'XCOM2RPGOverhaul_Defaults'.default.bPatchAutoPistols,class'UIScreenlistenerMCM_XCOM2RPGOverhaul'.default.cbPatchAutoPistols);
 }
-function bool fPatchDefaultWeaponUpgradeSlots()
+static function bool fPatchDefaultWeaponUpgradeSlots()
 {
 	return `MCM_CH_VersionChecker(class'XCOM2RPGOverhaul_Defaults'.default.bPatchDefaultWeaponUpgradeSlots,class'UIScreenlistenerMCM_XCOM2RPGOverhaul'.default.cbPatchDefaultWeaponUpgradeSlots);
 }
-function bool fPatchHeavyWeaponMobility()
+static function bool fPatchHeavyWeaponMobility()
 {
 	return `MCM_CH_VersionChecker(class'XCOM2RPGOverhaul_Defaults'.default.bPatchHeavyWeaponMobility,class'UIScreenlistenerMCM_XCOM2RPGOverhaul'.default.cbPatchHeavyWeaponMobility);
 }
-function bool fPatchFullAutoFire()
+static function bool fPatchFullAutoFire()
 {
 	return `MCM_CH_VersionChecker(class'XCOM2RPGOverhaul_Defaults'.default.bPatchFullAutoFire,class'UIScreenlistenerMCM_XCOM2RPGOverhaul'.default.cbPatchFullAutoFire);
 }
@@ -484,7 +484,7 @@ static function PatchWeapons()
 						break;
 					case 'rifle':
 					case 'sparkrifle':
-						if (InStr(WeaponTemplate.DataName, "SMG",, true) == INDEX_NONE && default.fPatchFullAutoFire())
+						if (InStr(WeaponTemplate.DataName, "SMG",, true) == INDEX_NONE && fPatchFullAutoFire())
 						{
 							AddAbilityToWeaponTemplate(WeaponTemplate, 'FullAutoFire', true);
 							if (InStr(string(WeaponTemplate.DataName), "CV",, true) != INDEX_NONE)
@@ -494,13 +494,13 @@ static function PatchWeapons()
 							if (InStr(string(WeaponTemplate.DataName), "BM",, true) != INDEX_NONE)
 								WeaponTemplate.SetAnimationNameForAbility('FullAutoFire', 'FF_AutoFireBeamA');
 						}
-						if (default.fPatchDefaultWeaponUpgradeSlots)
+						if (fPatchDefaultWeaponUpgradeSlots())
 						{
 							WeaponTemplate.NumUpgradeSlots = default.DefaultWeaponUpgradeSlots;
 						}
 						break;
 					case 'bullpup':
-						if (default.fPatchFullAutoFire())
+						if (fPatchFullAutoFire())
 						{
 							AddAbilityToWeaponTemplate(WeaponTemplate, 'FullAutoFire', true);
 							if (InStr(string(WeaponTemplate.DataName), "CV",, true) != INDEX_NONE)
@@ -511,14 +511,14 @@ static function PatchWeapons()
 								WeaponTemplate.SetAnimationNameForAbility('FullAutoFire', 'FF_AutoFireBeamA');
 						}
 						
-						if (default.fPatchBullpups())
+						if (fPatchBullpups())
 						{
 							WeaponTemplate.iClipSize += 1;
 						}
 						
 						AddAbilityToWeaponTemplate(WeaponTemplate, 'SkirmisherStrike', true);
 						
-						if (default.fPatchDefaultWeaponUpgradeSlots())
+						if (fPatchDefaultWeaponUpgradeSlots())
 						{
 							WeaponTemplate.NumUpgradeSlots = default.DefaultWeaponUpgradeSlots;
 						}
@@ -526,7 +526,7 @@ static function PatchWeapons()
 					case 'sniper_rifle':
 						AddAbilityToWeaponTemplate(WeaponTemplate, 'Squadsight', true);
 
-						if (default.fPatchDefaultWeaponUpgradeSlots())
+						if (fPatchDefaultWeaponUpgradeSlots())
 						{
 							WeaponTemplate.NumUpgradeSlots = default.DefaultWeaponUpgradeSlots;
 						}
@@ -534,13 +534,13 @@ static function PatchWeapons()
 					case 'vektor_rifle':
 						AddAbilityToWeaponTemplate(WeaponTemplate, 'SilentKillPassive');
 
-						if (default.fPatchDefaultWeaponUpgradeSlots())
+						if (fPatchDefaultWeaponUpgradeSlots())
 						{
 							WeaponTemplate.NumUpgradeSlots = default.DefaultWeaponUpgradeSlots;
 						}
 						break;
 					case 'shotgun':
-						if (default.fPatchShotguns())
+						if (fPatchShotguns())
 						{					
 							AddAbilityToWeaponTemplate(WeaponTemplate, 'ShotgunDamageModifierCoverType');
 							AddAbilityToWeaponTemplate(WeaponTemplate, 'ShotgunDamageModifierRange');
@@ -548,63 +548,63 @@ static function PatchWeapons()
 							WeaponTemplate.CritChance += default.ShotgunCritBonus;
 							WeaponTemplate.Aim += default.ShotgunAimBonus;
 						}
-						if (default.fPatchDefaultWeaponUpgradeSlots())
+						if (fPatchDefaultWeaponUpgradeSlots())
 						{
 							WeaponTemplate.NumUpgradeSlots = default.DefaultWeaponUpgradeSlots;
 						}
 						break;
 					case 'cannon':
-						if (default.fPatchFullAutoFire())
+						if (fPatchFullAutoFire())
 						{					
 							AddAbilityToWeaponTemplate(WeaponTemplate, 'FullAutoFire', true);
 						}
 						
 						AddAbilityToWeaponTemplate(WeaponTemplate, 'Suppression', true);
 						
-						if (default.fPatchCannons())
+						if (fPatchCannons())
 						{
 							WeaponTemplate.BaseDamage.Damage += default.CannonDamageBonus;
 							WeaponTemplate.iClipSize += 2;
 						}
-						if (default.fPatchHeavyWeaponMobility())
+						if (fPatchHeavyWeaponMobility())
 						{
 							AddAbilityToWeaponTemplate(WeaponTemplate, 'HeavyWeaponMobilityPenalty', true);
 						}						
-						if (default.fPatchDefaultWeaponUpgradeSlots())
+						if (fPatchDefaultWeaponUpgradeSlots())
 						{
 							WeaponTemplate.NumUpgradeSlots = default.DefaultWeaponUpgradeSlots;
 						}
 						break;
 					case 'pistol':
 						AddAbilityToWeaponTemplate(WeaponTemplate, 'PistolStandardShot', true);
-						if (default.fPatchPistols())
+						if (fPatchPistols())
 						{
 							AddAbilityToWeaponTemplate(WeaponTemplate, 'ReturnFire', true);
 						}
-						if (default.fPatchDefaultWeaponUpgradeSlots())
+						if (fPatchDefaultWeaponUpgradeSlots())
 						{
 							WeaponTemplate.NumUpgradeSlots = default.DefaultWeaponUpgradeSlots;
 						}
 						`LOG(WeaponTemplate.DataName,, 'RPG');
 						break;
 					case 'sidearm':
-						if (default.fPatchPistols())
+						if (fPatchPistols())
 						{
 							AddAbilityToWeaponTemplate(WeaponTemplate, 'ReturnFire', true);
 						}
-						if (default.fPatchAutoPistols())
+						if (fPatchAutoPistols())
 						{
 							WeaponTemplate.RangeAccuracy = default.VERY_SHORT_RANGE;
 							WeaponTemplate.CritChance += default.AutoPistolCritChanceBonus;
 						}
-						if (default.fPatchDefaultWeaponUpgradeSlots())
+						if (fPatchDefaultWeaponUpgradeSlots())
 						{
 							WeaponTemplate.NumUpgradeSlots = default.DefaultWeaponUpgradeSlots;
 						}
 						break;
 					case 'sword':
 						AddAbilityToWeaponTemplate(WeaponTemplate, 'SwordSlice', true);
-						if (default.fPatchDefaultWeaponUpgradeSlots())
+						if (fPatchDefaultWeaponUpgradeSlots())
 						{
 							WeaponTemplate.NumUpgradeSlots = default.DefaultWeaponUpgradeSlots;
 						}

@@ -55,14 +55,14 @@ simulated function ClientModCallback(MCM_API_Instance ConfigAPI, int GameMode)
     
     Group = Page.AddGroup('Group1', strSettingsTitle);
     
-	Group.AddCheckbox('acbPatchBullpups', strButton1, strButton1TT, cbPatchBullpups, CheckboxSaveHandler);
-    Group.AddCheckbox('acbPatchShotguns', strButton2, strButton2TT, cbPatchShotguns, CheckboxSaveHandler);
-    Group.AddCheckbox('acbPatchCannons', strButton3, strButton3TT, cbPatchCannons, CheckboxSaveHandler);
-    Group.AddCheckbox('acbPatchAutoPistols', strButton4, strButton4TT, cbPatchAutoPistols, CheckboxSaveHandler);
-    Group.AddCheckbox('acbPatchDefaultWeaponUpgradeSlots', strButton5, strButton5TT, cbPatchDefaultWeaponUpgradeSlots, CheckboxSaveHandler);
-    Group.AddCheckbox('acbPatchHeavyWeaponMobility', strButton6, strButton6TT, cbPatchHeavyWeaponMobility, CheckboxSaveHandler);
-    Group.AddCheckbox('acbPatchFullAutoFire', strButton7, strButton7TT, cbPatchFullAutoFire, CheckboxSaveHandler);
-    Group.AddCheckbox('acbPatchPistols', strButton8, strButton8TT, cbPatchPistols, CheckboxSaveHandler);	
+	Group.AddCheckbox('cbPatchBullpups', strButton1, strButton1TT, cbPatchBullpups, CheckboxSaveHandler);
+    Group.AddCheckbox('cbPatchShotguns', strButton2, strButton2TT, cbPatchShotguns, CheckboxSaveHandler);
+    Group.AddCheckbox('cbPatchCannons', strButton3, strButton3TT, cbPatchCannons, CheckboxSaveHandler);
+    Group.AddCheckbox('cbPatchAutoPistols', strButton4, strButton4TT, cbPatchAutoPistols, CheckboxSaveHandler);
+    Group.AddCheckbox('cbPatchDefaultWeaponUpgradeSlots', strButton5, strButton5TT, cbPatchDefaultWeaponUpgradeSlots, CheckboxSaveHandler);
+    Group.AddCheckbox('cbPatchHeavyWeaponMobility', strButton6, strButton6TT, cbPatchHeavyWeaponMobility, CheckboxSaveHandler);
+    Group.AddCheckbox('cbPatchFullAutoFire', strButton7, strButton7TT, cbPatchFullAutoFire, CheckboxSaveHandler);
+    Group.AddCheckbox('cbPatchPistols', strButton8, strButton8TT, cbPatchPistols, CheckboxSaveHandler);	
     
     Page.ShowSettings();
 }
